@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.fkit</groupId>
+	<artifactId>hellotest</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>hellotest</name>
+	<url>http://maven.apache.org</url>
+	<!-- 添加Spring Boot的核心启动器： 包含了 自动配置、日志和YAML等大量默认的配置，大大简化了开发工作。 本节点的 version 
+		配置确定后 其后添加的所有其他starter模块的version也确定了，言下之意是可以不填。 所以version填写最新的RELEASE版本即可。 
+		书上的2.0.0.RELEASE版本好像不能用了，我在start.spring.io上看到2.0的版本是
+		2.0.4.RELEASE-->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.4.RELEASE</version>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- 添加网站模块 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+	</dependencies>
+</project>
