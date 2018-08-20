@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Spring Boot自动转换JSON数据</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}"/> 
+<script type="text/javascript" th:src="@{js/jquery-1.11.0.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	findBook();
+});
+function findBook(){
+	$.ajax("/findBook",// 发送请求的URL字符串。
+			{
+			dataType : "json", // 预期服务器返回的数据类型。
+   			type : "post", //  请求方式 POST或GET
+		   contentType:"application/json", //  发送信息至服务器时的内容编码类型
+		   // 发送到服务器的数据。
+		   data:JSON.stringify({id : 1, name : "Spring MVC企业应用实战"}),
+		   async:  true , // 默认设置下，所有请求均为异步请求。如果设置为false，则发送同步请求
+		   // 请求成功后的回调函数。
+		   success :function(data){
+			   console.log(data);
+			  $("#image").attr("src","images/"+data.image+"");
+			  $("#name").html(data.name);
+			  $("#author").html(data.author);
+			  $("#price").html(data.price);
+			  $("#remark").html(data.remark);
+		   },
+		   // 请求出错时调用的函数
+		   error:function(){
+			   alert("数据发送失败");
+		   }
+	});
+}
+</script>
+</head>
+<body>
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Spring Boot中Java对象转换JSON</h3>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<p>封面：<img id="image" src="images/java.jpg"/></p>
+			<p>书名：<span id="name"></span></p>
+			<p>作者：<span id="author"></span></p>
+			<p>价格：<span id="price"></span></p>
+			<p>简介：<span id="remark"></span></p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

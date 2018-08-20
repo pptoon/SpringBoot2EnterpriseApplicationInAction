@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>thymeleaf示例</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}"/> 
+<script type="text/javascript" th:src="@{js/jquery-1.11.0.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="panel panel-primary">
+	<!-- .panel-heading 面板头信息。 -->
+	<div class="panel-heading">
+		<!-- .panel-title 面板标题。 -->
+		<h3 class="panel-title">Thymeleaf循环</h3>
+	</div>
+</div>
+<div class="container">
+			<div class="col-md-12">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				  	  <h3 class="panel-title">图书信息列表</h3>
+				  </div>
+				  <div class="panel-body">
+					<!-- table-responsive:响应式表格,在一个表展示所有的数据,当不够显示的时候可以左右滑动浏览-->
+					<div class="table table-responsive">
+						<!--
+		                	.table-bordered 类为表格和其中的每个单元格增加边框。
+		                	.table-hover 类可以让 <tbody> 中的每一行对鼠标悬停状态作出响应。
+		                -->
+						<table class="table table-bordered table-hover">
+							<thead>
+								<th class="text-center">封面</th ><th class="text-center">书名</th>
+								<th class="text-center">作者</th ><th class="text-center">价格</th>
+							</thead>
+							<tbody class="text-center">
+								<tr th:each="book : ${books}">
+									 <td> <img src="img/java.jpg" th:src="@{'img/'+${book.image}}" height="60"/></td>
+									<td th:text="${book.title}">书名</td>
+									<td th:text="${book.author}">作者</td>
+									<td th:text="${book.price}">价格</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"></meta>
+<title>thymeleaf示例</title>
+<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{css/bootstrap-theme.min.css}"/> 
+<script type="text/javascript" th:src="@{js/jquery-1.11.0.min.js}"></script>
+<script type="text/javascript" th:src="@{js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="panel panel-primary">
+	<!-- .panel-heading 面板头信息。 -->
+	<div class="panel-heading">
+		<!-- .panel-title 面板标题。 -->
+		<h3 class="panel-title">thymeleaf常用功能示例</h3>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<a th:href="@{regexptest?loginName=jack&amp;password=123456}">测试表达式访问数据</a><br/><br/>
+			<a th:href="@{iftest}">测试条件判断</a><br/><br/>
+			<a th:href="@{eachtest}">测试循环</a><br/><br/>
+		</div>
+	</div>
+</div>
+</body>
+</html>
