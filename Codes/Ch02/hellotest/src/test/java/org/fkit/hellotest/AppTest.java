@@ -4,13 +4,8 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-
 /**
  * Unit test for simple App.
- * 名称：<br/>
- * 说明：<br/>
- * @author Finersoft
- * @date 2018年8月23日
  */
 public class AppTest 
     extends TestCase
